@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { bold } from 'ansi-colors';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>pointApp</Text>
+        <Text style={styles.word}>pointApp</Text>
       </View>
     );
   }
@@ -14,8 +15,12 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#19174f',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  word: {
+    color: 'white',
+    fontSize: 50,
+  }
 });
