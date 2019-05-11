@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { bold } from 'ansi-colors';
 
 export default class App extends React.Component {
   render() {
