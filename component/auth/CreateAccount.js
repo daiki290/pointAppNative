@@ -8,21 +8,16 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: '',
+      phoneNumber: '',
       email: '',
       password: '',
     }
   }
 
-  loginUser = (email, password) => {
-    alert("ログインします。\n " + email + "\n" + password)
-  }
-
-  createAccount = () => {
-    alert("Accountを作成します。")
-  }
-
-  forgotPassword = () => {
-    alert("パスワードを再発行します。")
+  createAnAccount = () => {
+    alert("アカウント情報を登録しました！\nname:" + this.state.name + "\nphoneNumber:"
+      + this.state.phoneNumber + "\nemail:" + this.state.email + "\npassword:" + this.state.password)
   }
 
   render() {
@@ -31,12 +26,28 @@ export default class Login extends React.Component {
         <Card>
           <CardItem>
             <Content style={styles.content}>
-              <Label style={styles.title}>Sign In</Label>
+              <Label style={styles.title}>Create an Account</Label>
               <Form>
+                <Item floatingLabel>
+                  <Label>Name</Label>
+                  <Input
+                    autoCorrect={true}
+                    autoCapitalize='none'
+                    onChangeText={name => this.setState({ name })}
+                  />
+                </Item>
+                <Item floatingLabel>
+                  <Label>PhoneNumber</Label>
+                  <Input
+                    autoCorrect={true}
+                    autoCapitalize='none'
+                    onChangeText={phoneNumber => this.setState({ phoneNumber })}
+                  />
+                </Item>
                 <Item floatingLabel>
                   <Label>Email</Label>
                   <Input
-                    autoCorrect={false}
+                    autoCorrect={true}
                     autoCapitalize='none'
                     onChangeText={email => this.setState({ email })}
                   />
@@ -57,34 +68,10 @@ export default class Login extends React.Component {
                     style={styles.button}
                     full
                     danger
-                    onPress={() => { this.loginUser(this.state.email, this.state.password) }}
+                    onPress={() => { this.createAnAccount(this.state.email, this.state.password) }}
                   >
-                    <Text style={{ color: 'white' }}>LOGIN</Text>
+                    <Text style={{ color: 'white' }}>Create an Account</Text>
                   </Button>
-                  <Button
-                    style={styles.button}
-                    full
-                    bordered
-                    danger
-                    onPress={() => { this.loginUser(this.state.email, this.state.password) }}
-                  >
-                    <Text style={{ color: 'red' }}>Google Login</Text>
-                  </Button>
-                  <CardItem
-                    style={styles.button}
-                    button
-                    onPress={() => this.props.screenChangeToCreateAnAccount()}>
-                    <Text>
-                      Create an Account
-                    </Text>
-                  </CardItem>
-                  <CardItem
-                    button
-                    onPress={() => this.forgotPassword()}>
-                    <Text>
-                      Forgot password?
-                    </Text>
-                  </CardItem>
                 </Content>
               </Form>
             </Content>
