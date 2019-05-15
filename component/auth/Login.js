@@ -15,6 +15,7 @@ export default class Login extends React.Component {
 
   loginUser = (email, password) => {
     alert("ログインします。\n " + email + "\n" + password)
+    this.props.screenChangeToHome()
   }
 
   createAccount = () => {
