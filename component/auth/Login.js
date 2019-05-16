@@ -22,10 +22,6 @@ export default class Login extends React.Component {
     alert("Accountを作成します。")
   }
 
-  forgotPassword = () => {
-    alert("パスワードを再発行します。")
-  }
-
   render() {
     return (
       <Container style={styles.container}>
@@ -81,7 +77,7 @@ export default class Login extends React.Component {
                   </CardItem>
                   <CardItem
                     button
-                    onPress={() => this.forgotPassword()}>
+                    onPress={() => this.props.screenChangeToRequestPassword()}>
                     <Text>
                       Forgot password?
                     </Text>

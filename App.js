@@ -4,6 +4,7 @@ import {
 } from 'native-base'
 import Login from './component/auth/Login';
 import CreateAccount from './component/auth/CreateAccount';
+import RequestPassword from './component/auth/RequestPassword';
 import Home from './component/home/Home';
 import {
   createStackNavigator,
@@ -22,12 +23,18 @@ class App extends React.Component {
     this.props.navigation.navigate("Home")
   }
 
+  // パスワード再発行画面に移動
+  screenChangeToRequestPassword = () => {
+    this.props.navigation.navigate("RequestPassword")
+  }
+
   render() {
     return (
       <Container>
         <Login
           screenChangeToCreateAnAccount={this.screenChangeToCreateAnAccount.bind(this)}
           screenChangeToHome={this.screenChangeToHome.bind(this)}
+          screenChangeToRequestPassword={this.screenChangeToRequestPassword.bind(this)}
         />
       </Container>
     );
@@ -43,6 +50,9 @@ const AppNavigator = createStackNavigator({
   },
   Home: {
     screen: Home,
+  },
+  RequestPassword: {
+    screen: RequestPassword,
   },
 },
   {
