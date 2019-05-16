@@ -4,7 +4,7 @@ import {
   Container, Button, Text, Form, Item, Label, Input, Card, Content, CardItem,
 } from 'native-base'
 
-export default class Login extends React.Component {
+export default class CreateAccount extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
